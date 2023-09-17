@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --skintone-color: #DE9B72;
+  --dark-color: #3A3D3E;
+}
+
+.slot-border__outer-border {
+  border: 2px solid var(--skintone-color);
+  height: 99%;
+  width: 98%;
+  padding: 6px;
+  margin: 0 auto;
+}
+.slot-border__mid-border {
+  border: 6px solid var(--skintone-color);
+  height: 100%;
+  width: 100%;
+  padding: 6px;
+  margin: auto;
+}
+.slot-border__inner-border {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  border: 2px solid var(--skintone-color);
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+@media (min-width: 992px) {
+  .slot-border .slot-border__outer-border {
+    height: 94%;
+  }
+}
+
+.glow-on-hover {
+  width: 220px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+* {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+:root {
+  --fruits-width: 10rem;
+}
+
+body {
+  background-image: url(./img/slot-bgi.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 3px solid var(--skintone-color);
+  width: 100%;
+  padding: 0.3rem 0;
+  background-color: rgba(155, 155, 155, 0.7);
+}
+.row:last-of-type {
+  border-bottom: none;
+}
+.row li {
+  height: var(--fruits-width);
+  overflow: hidden;
+}
+.row div {
+  transform: translateY(calc(-100% + var(--fruits-width)));
+  transition: transform 1s;
+  transition-delay: calc(var(--i) * 300ms);
+}
+
+.fast div {
+  transition: none;
+}
+
+.fruits {
+  width: 100%;
+  height: 100%;
+}
+
+.balance {
+  position: absolute;
+  top: 0.2em;
+  right: 0.3em;
+  font-size: 3.5rem;
+  color: #fff;
+}
+
+.bet div {
+  transform: translateY(calc(0 - var(--fruits-width)));
+}
+
+.fruits-img {
+  display: block;
+  max-width: var(--fruits-width);
+}
+
+.btn {
+  border: none;
+  font-family: sans-serif;
+  font-size: 2.5rem;
+  padding: 0.3em 1.5em;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #fff;
+}
+
+.btn:hover {
+  background-color: #ccc;
+}
+
+.slot-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.slot-buttons__add-remove-buttons {
+  display: flex;
+}
+.slot-buttons__mid-add-remove-buttons {
+  display: none;
+}
+
+.slot-border {
+  height: 100%;
+}
+.slot__section {
+  width: 65%;
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.slot__lines {
+  width: 100%;
+  height: 100%;
+}
+
+.input {
+  border: none;
+  font-size: 1.3rem;
+  padding: 0.4em 0.6em;
+}
+
+.h1 {
+  position: absolute;
+  top: -23%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 5rem;
+  letter-spacing: 0.15em;
+}
+
+.bet-form {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-49%);
+}
+.bet-form__btn {
+  font-size: 1.5rem;
+  width: 20%;
+}
+.bet-form__input {
+  height: 100%;
+  width: 78%;
+  font-size: 1.7rem;
+  padding: 0.5em 1em;
+  background-color: #000;
+  color: #fff;
+}
+.bet-form__input::placeholder {
+  color: #fff;
+}
+.bet-form__input:focus {
+  outline: solid 1px #909090;
+}
+
+@media screen and (max-width: 750px) {
+  .slot-buttons__add-remove-buttons {
+    display: none;
+  }
+  .slot-buttons__mid-add-remove-buttons {
+    display: flex;
+  }
+  .slot__section {
+    width: 85%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

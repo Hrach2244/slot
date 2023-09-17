@@ -1,0 +1,43 @@
+:root {
+    --skintone-color: #DE9B72;
+    --dark-color: #3A3D3E;
+}
+
+.slot-border {
+    &__outer-border {
+        border: 2px solid var(--skintone-color);
+        height: 99%;
+        width: 98%;
+        padding: 6px;
+        margin: 0 auto;
+    }
+
+    &__mid-border {
+        border: 6px solid var(--skintone-color);
+        height: 100%;
+        width: 100%;
+        padding: 6px;
+        margin: auto;
+    }
+    
+    &__inner-border {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        border: 2px solid var(--skintone-color);
+        height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+
+    @media (min-width: 992px) {
+        .slot-border {
+            &__outer-border {
+                height: 94%;
+            }
+        }
+    }
+}
+
+

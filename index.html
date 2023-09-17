@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+
+    <main class="slot">
+        <h1 class="h1">Slot!!!</h1>
+
+        <div class="balance" id="userBalance">a</div>
+
+        <section class="slot__section">
+            <div class="slot-border fruits__frame">
+                <div class="slot-border__outer-border">
+                    <div class="slot-border__mid-border">
+                        <div class="slot-border__inner-border">
+                            <section class="slot__lines ">
+                                <div class="fruits">
+                                    <div class="row">
+
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="" id="betForm" class="bet-form">
+                <input type="text" name="balance" class="input bet-form__input" placeholder="Write Your Bet" id="betInput" autocomplete="off">
+    
+                <button type="submit" class="glow-on-hover btn bet-form__btn">SAVE</button>
+            </form>
+        </section>
+    </main>
+
+
+    <footer class="slot-buttons">
+        <div class="slot-buttons__add-remove-buttons">
+            <button class="btn slot-buttons__remove-line-btn" id="removeLineBtn" type="button">REMOVE LINE</button>
+            <button class="btn slot-buttons__add-line-btn" id="addLineBtn" type="button">ADD LINE</button>
+        </div>
+        <div class="slot-buttons__mid-add-remove-buttons">
+            <button class="btn slot-buttons__remove-line-btn" id="midRemoveLineBtn" type="button">-</button>
+            <button class="btn slot-buttons__add-line-btn" id="midAddLineBtn" type="button">+</button>
+        </div>
+        <div class="slot-buttons__play-button">
+            <button class="btn slot-buttons__auto-play-btn" type="button">AUTO</button>
+            <button class="btn slot-buttons__play-btn" id="playBtn" type="button">PLAY</button>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="./confetti.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
