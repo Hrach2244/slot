@@ -252,7 +252,7 @@ body {
 }
 
 .slot-buttons {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -297,7 +297,7 @@ body {
 }
 .slot__section {
   width: 65%;
-  position: absolute;
+  position: fixed;
   top: 44%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -372,6 +372,12 @@ body {
   .slot-buttons__mid-add-remove-buttons {
     width: 100%;
     justify-content: space-between;
+  }
+  .slot-buttons__remove-line-btn {
+    font-size: 3rem;
+  }
+  .slot-buttons__add-line-btn {
+    font-size: 3rem;
   }
   .slot-buttons__play-button {
     display: none;
