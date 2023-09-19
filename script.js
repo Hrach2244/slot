@@ -132,10 +132,13 @@ const game = () => {
     generateRandomRows();
 
     const playBtn = document.querySelector("#playBtn");
+    const mobPlayBtn = document.querySelector("#mobPlayBtn");
 
     let inAnimation;
 
     const calculateWin = () => {
+        mobPlayBtn.innerHTML = `<i class="fa-solid fa-play"></i>`
+
         const rowElems = Array.from(document.querySelectorAll(".row"))
         let isNotActivated = true;
 
@@ -168,41 +171,48 @@ const game = () => {
         inAnimation = false;
     }
 
-    playBtn.addEventListener("click", () => {
-        console.log(betValue);
-        if (betValue === undefined) return alert("Please, write your bet")
+    const startGame = (startBtn) => {
+        startBtn.addEventListener("click", () => {
+            if (betValue === undefined) return alert("Please, write your bet")
 
-        if (inAnimation) {
-            gameSection.classList.add("fast");
-
+            mobPlayBtn.innerHTML = `<i class="fa-solid fa-pause"></i>`
+    
+            if (inAnimation) {
+                gameSection.classList.add("fast");
+    
+                requestAnimationFrame(() => {
+                    gameSection.classList.remove("fast");
+    
+                    requestIdleCallback(calculateWin);
+    
+                    inAnimation = false;
+                });
+    
+                return;
+            }
+    
+            if (balance < betValue) return alert("not enaugh balance");
+    
+            balance = balance - betValue;
+            balanceElem.textContent = balance
+    
+            inAnimation = true;
+    
+            gameSection.classList.remove("bet");
+    
+            generateRandomRows();
+    
             requestAnimationFrame(() => {
-                gameSection.classList.remove("fast");
-
-                requestIdleCallback(calculateWin);
-
-                inAnimation = false;
+                gameSection.classList.add("bet");
+    
+                gameSection.querySelector("li:last-child div").addEventListener("transitionend", calculateWin);
             });
 
-            return;
-        }
-
-        if (balance < betValue) return alert("not enaugh balance");
-
-        balance = balance - betValue;
-        balanceElem.textContent = balance
-
-        inAnimation = true;
-
-        gameSection.classList.remove("bet");
-
-        generateRandomRows();
-
-        requestAnimationFrame(() => {
-            gameSection.classList.add("bet");
-
-            gameSection.querySelector("li:last-child div").addEventListener("transitionend", calculateWin);
         });
-    });
+    };
+    
+    startGame(playBtn);
+    startGame(mobPlayBtn);
 }
 
 game();
