@@ -86,7 +86,7 @@ body {
 .btn {
     border: none;
     font-family: sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding: 0.2em 1.5em;
     cursor: pointer;
     transition: 0.3s;
@@ -121,152 +121,163 @@ body {
     background-size: 10rem;
     background-position: center;
 
-        &__remove-line-btn {
-            background: inherit;
-            color: #fff;
-        }
-        &__add-line-btn {
-            background: inherit;
-            color: #fff;
-        }
+    &__play-btn {
+        background: inherit;
+        color: #fff;
+    }
+
+    &__auto-play-btn {
+        background: inherit;
+        color: #fff;
+    }
+
+    &__remove-line-btn {
+        background: inherit;
+        color: #fff;
+    }
+
+    &__add-line-btn {
+        background: inherit;
+        color: #fff;
+    }
+
+    &__add-remove-buttons {
+        display: flex;
+        background: inherit;
+    }
+
+    &__mid-add-remove-buttons {
+        display: none;
+    }
+
+    &__mob-play-buttons {
+        display: none;
+    }
+}
+
+.slot {
+    &-border {
+        height: 100%;
+    }
+
+    &__section {
+        width: 65%;
+        position: absolute;
+        top: 44%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__lines {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.input {
+    border: none;
+    font-size: 1.3rem;
+    padding: 0.4em 0.6em;
+}
+
+.h1 {
+    position: absolute;
+    top: -23%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 5rem;
+    letter-spacing: 0.15em;
+}
+
+.bet-form {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-49%);
+
+    &__btn {
+        font-size: 1.5rem;
+        width: 20%;
+    }
+
+    &__input {
+        height: 100%;
+        width: 78%;
+        font-size: 1.7rem;
+        padding: 0.5em 1em;
+        background-color: #000;
+        color: #fff;
+    }
+
+    &__input::placeholder {
+        color: #fff;
+    }
+
+    &__input:focus {
+        outline: solid 1px #909090;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .slot-buttons {
 
         &__add-remove-buttons {
-            display: flex;
-            background: inherit;
+            display: none;
         }
 
         &__mid-add-remove-buttons {
-            display: none;
-        }
-
-        &__mob-play-buttons {
-            display: none;
+            display: flex;
         }
     }
 
     .slot {
-        &-border {
-            height: 100%;
-        }
-
         &__section {
-            width: 65%;
-            position: absolute;
-            top: 44%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            width: 85%;
+        }
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .slot {
+        &__section {
+            width: 98%;
+            top: 40%;
         }
 
-        &__lines {
+    }
+
+    .slot-buttons {
+        &__mid-add-remove-buttons {
             width: 100%;
-            height: 100%;
+            justify-content: space-between;
         }
-    }
 
-    .input {
-        border: none;
-        font-size: 1.3rem;
-        padding: 0.4em 0.6em;
-    }
+        &__play-button {
+            display: none;
+        }
 
-    .h1 {
-        position: absolute;
-        top: -23%;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #fff;
-        font-family: 'Playfair Display', serif;
-        font-weight: 600;
-        font-size: 5rem;
-        letter-spacing: 0.15em;
+        &__mob-play-buttons {
+            display: block;
+            position: fixed;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
 
     .bet-form {
-        width: 100%;
-        height: fit-content;
-        display: flex;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-49%);
+        &__input {
+            width: 71%;
+        }
 
         &__btn {
-            font-size: 1.5rem;
-            width: 20%;
-        }
-
-        &__input {
-            height: 100%;
-            width: 78%;
-            font-size: 1.7rem;
-            padding: 0.5em 1em;
-            background-color: #000;
-            color: #fff;
-        }
-
-        &__input::placeholder {
-            color: #fff;
-        }
-
-        &__input:focus {
-            outline: solid 1px #909090;
+            width: 27%;
         }
     }
-
-    @media screen and (max-width: 750px) {
-        .slot-buttons {
-
-            &__add-remove-buttons {
-                display: none;
-            }
-
-            &__mid-add-remove-buttons {
-                display: flex;
-            }
-        }
-
-        .slot {
-            &__section {
-                width: 85%;
-            }
-        }
-    }
-
-    @media screen and (max-width: 490px) {
-        .slot {
-            &__section {
-                width: 95%;
-                top: 40%;
-            }
-
-        }
-
-        .slot-buttons {
-            &__mid-add-remove-buttons {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            &__play-button {
-                display: none;
-            }
-
-            &__mob-play-buttons {
-                display: block;
-                position: fixed;
-                top: 70%;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        .bet-form {
-            &__input {
-                width: 71%;
-            }
-
-            &__btn {
-                width: 27%;
-            }
-        }
-    }
+}
