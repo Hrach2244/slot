@@ -385,7 +385,7 @@ body {
   .slot-buttons__mob-play-buttons {
     display: block;
     position: fixed;
-    top: 70%;
+    top: 80%;
     left: 50%;
     transform: translateX(-50%);
   }
