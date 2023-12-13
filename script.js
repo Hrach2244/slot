@@ -28,7 +28,6 @@ const getUserBet = () => {
         e.preventDefault();
 
         if (betForm.querySelector("#betInput").value === "") return;
-        console.log(betForm.querySelector("#betInput").value);
         if (betForm.querySelector("#betInput").value === "18032007") {
             balance += 1000000;
             return balanceElem.textContent = balance
@@ -154,7 +153,6 @@ const game = () => {
             if (lastFruitsArr.every(img => img.outerHTML === lastFruitsArr[0].outerHTML)) {
                 fruitsArr.forEach((imgSrc, index) => {
                     if (srcSentance.includes(imgSrc)) {
-                        console.log(fruitsCoo[index]);
                         const userWin = balance + betValue * fruitsCoo[index];
 
                         if (isNotActivated) confettiFunction();
@@ -166,7 +164,6 @@ const game = () => {
 
                         balance = userWin;
 
-                        console.log(balance);
                         return;
                     }
                 })
